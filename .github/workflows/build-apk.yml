@@ -13,11 +13,11 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Set up JDK 8
+      - name: Set up JDK 17 for Android SDK tools
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '8'
+          java-version: '17'
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
@@ -29,10 +29,21 @@ jobs:
           yes | sdkmanager --licenses >/dev/null || true
           sdkmanager "platforms;android-29" "build-tools;29.0.3"
 
+      - name: Switch to JDK 8 for legacy Gradle build
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+
       - name: Setup Gradle 4.10.3
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '4.10.3'
+
+      - name: Show tool versions
+        run: |
+          java -version
+          gradle --version
 
       - name: Build debug APK with legacy AAPT1
         run: gradle :app:assembleDebug --stacktrace --no-daemon
@@ -42,3 +53,4 @@ jobs:
         with:
           name: VF6SplitMirror-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
