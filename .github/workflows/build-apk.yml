@@ -13,6 +13,8 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # Current Android command-line tools require Java 17+.
+      # Use JDK 17 only while installing the Android SDK packages.
       - name: Set up JDK 17 for Android SDK tools
         uses: actions/setup-java@v4
         with:
@@ -29,6 +31,8 @@ jobs:
           yes | sdkmanager --licenses >/dev/null || true
           sdkmanager "platforms;android-29" "build-tools;29.0.3"
 
+      # The legacy Android Gradle Plugin 3.2.1 / Gradle 4.10.3 toolchain
+      # used for aauto-sdk v4.6 must run on Java 8.
       - name: Switch to JDK 8 for legacy Gradle build
         uses: actions/setup-java@v4
         with:
