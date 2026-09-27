@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">VF6 Split Mirror</string>
+    <string name="accessibility_name">VF6 Split Mirror Control</string>
+    <string name="accessibility_description">Cho phép VF6 Split Mirror tạo chia đôi màn hình và chuyển thao tác chạm từ Android Auto về điện thoại.</string>
+    <string name="title_left">App bên trái</string>
+    <string name="title_right">App bên phải</string>
+    <string name="enable_accessibility">1. Bật Accessibility</string>
+    <string name="start_pair">2. Chia 2 app + phản chiếu</string>
+    <string name="stop_mirror">Dừng phản chiếu</string>
+    <string name="hint">Bật xoay tự động, đặt điện thoại ngang. Khi bấm bắt đầu, Android sẽ hỏi quyền ghi màn hình. Sau đó mở VF6 Split Mirror trong Android Auto.</string>
+    <string name="status_ready">Sẵn sàng</string>
+    <string name="status_capture">Đang phản chiếu màn hình điện thoại…</string>
+    <string name="status_waiting">Chưa có hình. Hãy bấm “Chia 2 app + phản chiếu” trên điện thoại.</string>
+    <string name="notification_channel">VF6 Split Mirror</string>
+    <string name="notification_title">Đang phản chiếu lên Android Auto</string>
+    <string name="notification_stop">Dừng</string>
+</resources>

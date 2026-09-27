@@ -1,0 +1,4 @@
+VF6 Split Mirror v0.1 source generated.
+
+This environment does not contain Android SDK / Gradle, so an APK binary was not compiled locally.
+A GitHub Actions build workflow is included at .github/workflows/build-apk.yml.

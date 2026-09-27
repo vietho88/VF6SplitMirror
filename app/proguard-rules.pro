@@ -1,0 +1,2 @@
+-keep class com.google.android.apps.auto.sdk.** { *; }
+-dontwarn com.google.android.apps.auto.sdk.**
