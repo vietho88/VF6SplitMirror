@@ -1,1 +1,1 @@
-v0.5: compileSdk 29 compatibility fixes: removed API 30+ getSystemActions() usage and API 31 FLAG_IMMUTABLE reference.
+v0.6: removed unsupported hideAppHeader() call; workflow now uploads build.log and greps javac errors.

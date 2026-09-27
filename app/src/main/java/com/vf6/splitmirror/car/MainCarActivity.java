@@ -48,7 +48,7 @@ public class MainCarActivity extends CarActivity {
         CarUiController controller = getCarUiController();
         StatusBarController bar = controller.getStatusBarController();
         bar.setTitle(getString(R.string.app_name));
-        bar.hideAppHeader();
+        bar.showTitle();
 
         image.setOnTouchListener(this::onTouchMirror);
     }

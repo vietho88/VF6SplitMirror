@@ -64,3 +64,8 @@ This revision keeps compileSdk 29 for legacy AAPT1/aauto-sdk compatibility and r
 
 - `PendingIntent.FLAG_IMMUTABLE` (API 31) -> `FLAG_UPDATE_CURRENT`
 - `AccessibilityService.getSystemActions()` (API 30) -> runtime attempt of `GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN` with existing fallback
+
+
+## v0.6
+- Replace unsupported `StatusBarController.hideAppHeader()` with documented `showTitle()` from aauto-sdk demo.
+- GitHub Actions now stores `build.log` and prints compiler errors explicitly.

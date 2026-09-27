@@ -50,7 +50,22 @@ jobs:
           gradle --version
 
       - name: Build debug APK with legacy AAPT1
-        run: gradle :app:assembleDebug --stacktrace --no-daemon
+        shell: bash
+        run: |
+          set +e
+          gradle :app:assembleDebug --console=plain --stacktrace --no-daemon 2>&1 | tee build.log
+          status=${PIPESTATUS[0]}
+          echo "---- Compiler errors (if any) ----"
+          grep -nE "error:|cannot find symbol|package .* does not exist|method .* cannot be applied" build.log || true
+          exit $status
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: VF6SplitMirror-build-log
+          path: build.log
+          if-no-files-found: ignore
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
