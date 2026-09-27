@@ -42,8 +42,8 @@ public class MainCarActivity extends CarActivity {
         setTheme(R.style.AppTheme_Car);
         super.onCreate(bundle);
         setContentView(R.layout.activity_car_main);
-        image = findViewById(R.id.mirror_image);
-        status = findViewById(R.id.car_status);
+        image = (ImageView) findViewById(R.id.mirror_image);
+        status = (TextView) findViewById(R.id.car_status);
 
         CarUiController controller = getCarUiController();
         StatusBarController bar = controller.getStatusBarController();

@@ -69,3 +69,8 @@ This revision keeps compileSdk 29 for legacy AAPT1/aauto-sdk compatibility and r
 ## v0.6
 - Replace unsupported `StatusBarController.hideAppHeader()` with documented `showTitle()` from aauto-sdk demo.
 - GitHub Actions now stores `build.log` and prints compiler errors explicitly.
+
+
+## v0.7 build fix
+- Cast `CarActivity.findViewById()` results to `ImageView` and `TextView`.
+- Required because the legacy `aauto-sdk` exposes a raw `View` return type for this activity.
