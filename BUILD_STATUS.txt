@@ -1,4 +1,4 @@
-VF6 Split Mirror v0.1 source generated.
-
-This environment does not contain Android SDK / Gradle, so an APK binary was not compiled locally.
-A GitHub Actions build workflow is included at .github/workflows/build-apk.yml.
+VF6 Split Mirror v0.2 - legacy Android build compatibility
+- Uses AGP 3.2.1 + Gradle 4.10.3 + JDK 8
+- Disables AAPT2 so legacy aauto-sdk v4.6 resources with fixed numeric IDs can compile
+- compileSdk 29 / targetSdk 28 for compatibility with the old unofficial Android Auto SDK

@@ -22,8 +22,8 @@ import android.os.IBinder;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
+import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 
 import com.vf6.splitmirror.R;
 
@@ -98,13 +98,8 @@ public class MirrorCaptureService extends Service {
 
     private void acquireProjection(Intent intent) {
         int resultCode = intent.getIntExtra(EXTRA_RESULT_CODE, 0);
-        Intent data;
-        if (Build.VERSION.SDK_INT >= 33) {
-            data = intent.getParcelableExtra(EXTRA_RESULT_DATA, Intent.class);
-        } else {
-            //noinspection deprecation
-            data = intent.getParcelableExtra(EXTRA_RESULT_DATA);
-        }
+        //noinspection deprecation
+        Intent data = intent.getParcelableExtra(EXTRA_RESULT_DATA);
         if (data == null) { stopSelf(); return; }
 
         MediaProjectionManager manager = getSystemService(MediaProjectionManager.class);
@@ -126,17 +121,11 @@ public class MirrorCaptureService extends Service {
 
     private void readPhoneSize() {
         WindowManager wm = getSystemService(WindowManager.class);
-        if (Build.VERSION.SDK_INT >= 30) {
-            android.graphics.Rect b = wm.getMaximumWindowMetrics().getBounds();
-            phoneWidth = b.width();
-            phoneHeight = b.height();
-        } else {
-            DisplayMetrics dm = new DisplayMetrics();
-            //noinspection deprecation
-            wm.getDefaultDisplay().getRealMetrics(dm);
-            phoneWidth = dm.widthPixels;
-            phoneHeight = dm.heightPixels;
-        }
+        DisplayMetrics dm = new DisplayMetrics();
+        //noinspection deprecation
+        wm.getDefaultDisplay().getRealMetrics(dm);
+        phoneWidth = dm.widthPixels;
+        phoneHeight = dm.heightPixels;
     }
 
     private void onImageAvailable(ImageReader reader) {

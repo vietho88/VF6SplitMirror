@@ -1,6 +1,5 @@
 package com.vf6.splitmirror.phone;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -18,8 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import com.vf6.splitmirror.R;
 import com.vf6.splitmirror.capture.MirrorCaptureService;
@@ -67,10 +66,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText(R.string.status_ready);
         });
 
-        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQ_NOTIFICATIONS);
-        }
+
     }
 
     private void loadApps() {

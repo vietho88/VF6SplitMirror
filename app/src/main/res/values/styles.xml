@@ -1,9 +1,9 @@
 <resources>
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:fontFamily">sans</item>
-        <item name="android:colorAccent">#FFFFFF</item>
+        <item name="colorAccent">#FFFFFF</item>
     </style>
-    <style name="AppTheme.Car" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme.Car" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">#000000</item>
     </style>
 </resources>
