@@ -83,7 +83,7 @@ public class MirrorCaptureService extends Service {
                 CHANNEL, getString(R.string.notification_channel), NotificationManager.IMPORTANCE_LOW));
         PendingIntent stop = PendingIntent.getService(this, 0,
                 new Intent(this, MirrorCaptureService.class).setAction(ACTION_STOP),
-                PendingIntent.FLAG_IMMUTABLE);
+                PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder b = new NotificationCompat.Builder(this, CHANNEL)
                 .setSmallIcon(R.drawable.ic_app)
                 .setContentTitle(getString(R.string.notification_title))

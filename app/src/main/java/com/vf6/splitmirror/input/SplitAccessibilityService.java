@@ -11,9 +11,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
 
-import java.util.List;
 
 public class SplitAccessibilityService extends AccessibilityService {
     private static volatile SplitAccessibilityService instance;
@@ -65,14 +63,10 @@ public class SplitAccessibilityService extends AccessibilityService {
     }
 
     private boolean supportsSplitAction() {
-        if (Build.VERSION.SDK_INT >= 30) {
-            List<AccessibilityNodeInfo.AccessibilityAction> actions = getSystemActions();
-            for (AccessibilityNodeInfo.AccessibilityAction a : actions) {
-                if (a.getId() == GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN) return true;
-            }
-            return false;
-        }
-        return true;
+        // GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN exists in API 24-29.
+        // On newer Android versions the action may return false at runtime;
+        // launchPair() already handles that and falls back to manual split-screen.
+        return Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean tap(float x, float y) {

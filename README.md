@@ -56,3 +56,11 @@ Repo đã có `.github/workflows/build-apk.yml`.
 ## Nguồn / ghi công
 
 Ý tưởng tương thích Android Auto projection app dựa trên cấu trúc của open-source **Widgets for Auto** (GPL-3.0, ns130291), dùng `com.github.martoreto:aauto-sdk:v4.6`. Cơ chế MediaProjection/VirtualDisplay tham khảo kiến trúc các dự án Android Auto mirroring mã nguồn mở hiện có. Source của project này được cung cấp cho mục đích thử nghiệm cá nhân.
+
+
+## v0.5 compile fix
+
+This revision keeps compileSdk 29 for legacy AAPT1/aauto-sdk compatibility and removes two references that require newer compile SDKs:
+
+- `PendingIntent.FLAG_IMMUTABLE` (API 31) -> `FLAG_UPDATE_CURRENT`
+- `AccessibilityService.getSystemActions()` (API 30) -> runtime attempt of `GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN` with existing fallback
